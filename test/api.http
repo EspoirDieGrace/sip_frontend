@@ -1,0 +1,425 @@
+@api = http://localhost:3001
+
+GET {{api}}/categorieetablissement/getall
+
+
+
+####
+POST {{api}}/categorieetablissement/add
+Content-Type: application/json
+
+ {
+    "localitelibelle":"academie",
+    "zone":"1",
+    "localiteattribut":"1"
+}
+#####
+POST {{api}}/planning/add
+Content-Type: application/json
+
+ {
+   "planningdatedebut":"2022-05-08",
+   "planningdatefin":"2022-05-18"
+}
+
+####
+GET {{api}}/objectif/getall
+
+
+###
+GET {{api}}/typeprescripteur/getall
+
+
+####
+POST {{api}}/typeprescripteur/add
+Content-Type: application/json
+
+
+{
+    "typeprescripteurlibelle":"pédiatre",
+    "typeprescripteurdescription":"juste pour les enfants"
+}
+
+
+###
+
+PUT  {{api}}/typeprescripteur/update/3
+Content-Type: application/json
+
+{
+    "typeprescripteurlibelle":"medecin",
+    "typeprescripteurdescription":"medecin generaliste"
+}
+
+
+###
+DELETE {{api}}/typeprescripteur/delete/3
+###
+POST {{api}}/role/add
+Content-Type: application/json
+
+{
+    "roledata":"managerffffffffffff",
+    "rolenom":"manager1"
+}
+
+
+
+####
+POST {{api}}/role/add
+Content-Type: application/json
+
+{
+    "roledata":"managerffffffffffff",
+    "rolenom":"manager"
+}
+###
+Get {{api}}/prescripteur/getall
+
+###
+POST {{api}}/prescripteur/add
+Content-Type: application/json
+{
+    "prescripteurnom":"Die",
+    "prescripteurprenom":"Florentin",
+    "prescripteuremail":"die@gmail.com",
+    "prescripteurcontact":"1444543212",
+    "typeprescripteur":"4"
+}
+
+###
+PUT {{api}}/prescripteur/update/1
+Content-Type: application/json
+
+{
+    "prescripteurnom":"Mondah",
+    "prescripteurprenom":"Aristide Arnaud",
+    "prescripteuremail":"aristide@gmail.com",
+    "prescripteurcontact":"1234543212",
+    "typeprescripteur":"4"
+}
+
+###
+DELETE {{api}}/prescripteur/delete/2
+
+
+###
+GET {{api}}/categorieetablissement/getall
+
+###
+POST {{api}}/categorieetablissement/add
+Content-Type: application/json
+
+{
+    "catetablibelle":"chu"
+}
+
+###
+PUT {{api}}/categorieetablissement/update/3
+Content-Type: application/json
+
+{
+    "catetablibelle":"chu",
+    "catetabdescription":"clinique sp"
+}
+
+###
+DELETE {{api}}/categorieetablissement/delete/3
+
+
+###Desactive un objet e tle met a false
+
+DELETE {{api}}/role/delete/1
+
+
+### Delete fait par le root , supprime et non desactive
+
+DELETE {{api}}/categorie/10/123456
+
+
+#######################  ROLE  #################
+
+
+GET {{api}}/role/getall
+
+###
+
+POST {{api}}/role/add
+Content-Type: application/json
+
+{
+    "rolelibelle": "admin"
+}
+
+###
+
+PUT {{api}}/role/update/1
+Content-Type: application/json
+
+{
+    "rolenom": "manager",
+    "roledata":"managerooooooooooooo"
+}
+
+
+### Desactive un objet e tle met a false
+
+DELETE {{api}}/role/delete/4
+
+
+### Delete fait par le root , supprime et non desactive
+
+DELETE {{api}}/categorie/10/123456
+
+
+
+
+#######################  PRODUIT  #################
+
+
+GET {{api}}/produit/getall
+
+###
+
+POST {{api}}/produit/adden
+Content-Type: application/json
+
+{
+    "produitlibelle": "porduit updated",
+    "produitprix": 1234,
+    "categorie": {
+        "categorieproduitid":2
+    },
+    "marque": {
+        "marqueid":2
+    },
+    "posteur": {
+        "utilisateurid":33
+    }
+  
+}
+
+###
+
+PUT {{api}}/produit/update
+Content-Type: application/json
+
+{
+    "produitlibelle": "Iphone 7"
+}
+
+
+### Desactive un objet e tle met a false
+
+DELETE {{api}}/produit/delete/13
+
+
+### Delete fait par le root , supprime et non desactive
+
+DELETE {{api}}/categorie/10/123456
+
+
+
+
+#######################  UTILISATEUR  #################
+
+
+GET {{api}}/utilisateur/getall
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjcnVwcG9iZXVxdW9yaS04NDUzQHlvcG1haWwuY29tIiwiaWF0IjoxNjQ5OTU0MTc1LCJleHAiOjE2NDk5NTc3NzV9.mt_AhiBeaAqRiVoxWui_QydhIaly_5HQUiwr4D__1lw
+
+###
+
+POST {{api}}/utilisateur/add
+Content-Type: application/json
+
+{
+    "utilisateurnom": "AniB",
+    "utilisateurprenom": "Vianne",
+    "utilisateurpassword": "Test",
+    "utilisateurcontact": "0567686769",
+    "utilisateuremail": "yoiquejuffotro-1538@yopmail.com",
+    "role": {
+        "roleid":"1"
+    }
+}
+
+###
+
+PUT {{api}}/utilisateur/updateprofile/34
+Content-Type: application/json
+
+{
+    "utilisateurnom": "AniB",
+    "utilisateurprenom": "Vian",
+    "utilisateurpassword": "Test",
+    "utilisateurcontact": "0567686769",
+    "utilisateuremail": "yoiquejuffotro-1538@yopmail.com",
+    "role": {
+        "roleid":"1"
+    }
+}
+
+
+
+### Desactive un objet e tle met a false
+
+DELETE {{api}}/role/13
+
+
+### Delete fait par le root , supprime et non desactive
+
+DELETE {{api}}/categorie/10/123456
+
+###
+
+PUT {{api}}/auth/validate?user=0777090700&roleid=3
+Content-Type: application/json
+
+{}
+
+### Desactive un objet e tle met a false
+
+
+
+#######################  COMMANDE  #################
+
+
+GET {{api}}/commande
+
+###
+
+POST {{api}}/commande/add
+Content-Type: application/json
+
+{
+    "utilisateurnom": "Test",
+    "utilisateurprenom": "Test",
+    "utilisateurpassword": "Test",
+    "utilisateurcontact": "Test",
+    "utilisateuremail": "Test",
+    "role": {
+        "roleid":"1"
+    }
+}
+
+###
+
+PUT {{api}}/produit/update
+Content-Type: application/json
+
+{
+    "produitlibelle": "Iphone 7"
+}
+
+
+### Desactive un objet e tle met a false
+
+DELETE {{api}}/role/13
+
+
+### Delete fait par le root , supprime et non desactive
+
+DELETE {{api}}/categorie/10/123456
+
+
+###
+
+POST {{api}}/auth/register
+Content-Type: application/json
+
+{
+    "utilisateurnom": "Christmo Ema",
+    "utilisateurprenom": "Ema",
+    "utilisateurpassword": "123456",
+    "utilisateurcontact": "0777090700",
+    "utilisateuremail": "cruppobeuquori-8453@yopmail.com"
+}
+
+
+###
+
+POST {{api}}/auth/login
+Content-Type: application/json
+
+{
+    "user": "0777090700",
+    "password": "123456",
+    "juser": "daKio@gamil.com"
+}
+
+###
+
+
+
+GET {{api}}/auth/refresh
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJjcnVwcG9iZXVxdW9yaS04NDUzQHlvcG1haWwuY29tIiwiaWF0IjoxNjQ5OTUyNjA0LCJleHAiOjE2NDk5NTI2NDR9.XCgZ_2dNus637uX3klT1kxtrnrFH_XG-BZ3UDNvZVs4
+
+###
+
+GET {{api}}/auth/forgot?user=cruppobeuquori-8453@yopmail.com
+
+### -------------------  CRUD ZONE ATTRIBUT
+
+### GET ZONE ATTRIBUT
+
+GET {{api}}/zoneattribut/getall
+
+
+
+### ADD ADRESSE
+
+PUT {{api}}/adresse/update/1
+Content-Type: application/json
+
+{
+    "adresseid": 1,
+    "adressegps": "23.33|44.33",
+    "adressedescription": "alo",
+    "utilisateur": { "utilisateurid" : 1},
+    "adressezone": {
+            "id": "place.998963589912310",
+            "type": "Feature",
+            "place_type": [
+                "place"
+            ],
+            "relevance": 0.96,
+            "properties": {},
+            "text_fr": "Adjamé",
+            "place_name_fr": "Adjamé, Région des Lagunes, Côte d'Ivoire",
+            "text": "Adjamé",
+            "place_name": "Adjamé, Région des Lagunes, Côte d'Ivoire",
+            "center": [
+                -3.518624464,
+                6.276194752
+            ],
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.518624464,
+                    6.276194752
+                ]
+            },
+            "context": [
+                {
+                    "id": "region.7706244683359040",
+                    "short_code": "CI-01",
+                    "wikidata": "Q639491",
+                    "text_fr": "Région des Lagunes",
+                    "language_fr": "fr",
+                    "text": "Région des Lagunes",
+                    "language": "fr"
+                },
+                {
+                    "id": "country.9765183730464640",
+                    "wikidata": "Q1008",
+                    "short_code": "ci",
+                    "text_fr": "Côte d'Ivoire",
+                    "language_fr": "fr",
+                    "text": "Côte d'Ivoire",
+                    "language": "fr"
+                }
+            ]
+        }
+}
+
+
